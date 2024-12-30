@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manage Bus Routes</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fafae3;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 30px;
+      color: #2c3e50;
+      font-size: 2em;
+    }
+
+    .form-container {
+      background-color: white;
+      width: 100%;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ddd;
+      margin-top: 30px;
+      box-sizing: border-box;
+    }
+
+    .form-container h3 {
+      margin-bottom: 20px;
+      font-size: 1.6em;
+      color: #2c3e50;
+    }
+
+    label {
+      font-size: 1.1em;
+      color: #555;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0 16px 0;
+      border: 2px solid #ddd;
+      border-radius: 6px;
+      font-size: 1em;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #c2b328;
+      outline: none;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #c2b328;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1.1em;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #c2b328;
+    }
+
+    .routes-list {
+      width: 100%;
+      margin-top: 40px;
+      padding: 25px;
+      box-sizing: border-box;
+    }
+
+    .routes-list h3 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.4em;
+      color: #2c3e50;
+    }
+
+    .route-item {
+      background-color: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      font-size: 1.1em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: transform 0.2s ease-in-out;
+      width: 100%;
+    }
+
+    .route-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .route-item p {
+      margin: 0;
+      color: #333;
+    }
+
+    .route-item .edit-btn,
+    .route-item .delete-btn {
+      padding: 8px 15px;
+      font-size: 0.9em;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: background-color 0.3s;
+    }
+
+    .route-item .edit-btn {
+      background-color: #c2b328;
+      color: white;
+    }
+
+    .route-item .edit-btn:hover {
+      background-color: #c2b328;
+    }
+
+    .route-item .delete-btn {
+      background-color: #e74c3c;
+      color: white;
+    }
+
+    .route-item .delete-btn:hover {
+      background-color: #c0392b;
+    }
+
+    /* Media Queries for responsiveness */
+    @media (max-width: 768px) {
+      .form-container, .routes-list {
+        padding: 15px;
+        margin: 20px 0;
+      }
+
+      .route-item {
+        font-size: 1em;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      button {
+        font-size: 1em;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Manage Bus Routes</h2>
+
+  <div class="form-container">
+    <h3>Add New Route</h3>
+    <form id="addRouteForm">
+      <label for="routeName">Route Name:</label>
+      <input type="text" id="routeName" placeholder="e.g., Route 101" required>
+
+      <label for="routeStart">Start Location:</label>
+      <input type="text" id="routeStart" placeholder="e.g., Bengaluru" required>
+
+      <label for="routeEnd">End Location:</label>
+      <input type="text" id="routeEnd" placeholder="e.g., Whitefield" required>
+
+      <button type="submit">Add Route</button>
+    </form>
+  </div>
+
+  <div class="routes-list">
+    <h3>Existing Routes</h3>
+    <div class="route-item">
+      <p><strong>Route 101:</strong> From Bengaluru to Whitefield</p>
+      <div>
+        <button class="edit-btn">Edit</button>
+        <button class="delete-btn">Delete</button>
+      </div>
+    </div>
+    <div class="route-item">
+      <p><strong>Route 102:</strong> From Koramangala to MG Road</p>
+      <div>
+        <button class="edit-btn">Edit</button>
+        <button class="delete-btn">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Handle route submission (to be connected to backend in real-world use)
+    document.getElementById('addRouteForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var routeName = document.getElementById('routeName').value;
+      var routeStart = document.getElementById('routeStart').value;
+      var routeEnd = document.getElementById('routeEnd').value;
+      
+      alert("New route added: " + routeName + " from " + routeStart + " to " + routeEnd);
+    });
+
+    // Edit route functionality (currently just a placeholder)
+    document.querySelectorAll('.edit-btn').forEach(function(button) {
+      button.addEventListener('click', function() {
+        alert('Edit route functionality coming soon!');
+      });
+    });
+
+    // Delete route functionality (currently just a placeholder)
+    document.querySelectorAll('.delete-btn').forEach(function(button) {
+      button.addEventListener('click', function() {
+        alert('Delete route functionality coming soon!');
+      });
+    });
+  </script>
+
+</body>
+</html>

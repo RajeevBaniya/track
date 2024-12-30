@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin/Manager Portal - School Bus Tracking</title>
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fafae3;
+      color: #4a4a4a;
+      margin: 0;
+      padding: 0;
+      font-size: 18px;
+    }
+
+    h2, h3 {
+      color: #f39c12;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #27ae60;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: #1abc9c;
+    }
+
+    .admin-portal {
+      padding: 50px 20px;
+      margin: 20px auto;
+      max-width: 100%;
+      width: 100%;
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .admin-portal h2 {
+      font-size: 2.5rem;
+      text-align: center;
+      color: #f39c12;
+      margin-bottom: 30px;
+    }
+
+    .admin-features {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .admin-features .feature-section {
+      flex: 1;
+      min-width: 280px;
+      padding: 25px;
+      background-color: #ecf0f1;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .admin-features ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .admin-features ul li {
+      background-color: #ffffff;
+      margin-bottom: 20px;
+      padding: 18px;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+    }
+
+    .admin-features ul li i {
+      margin-right: 15px;
+      color: #f39c12;
+    }
+
+    .admin-features ul li:hover {
+      background-color: #f39c12;
+      color: white;
+    }
+
+    .admin-actions {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .admin-actions .btn {
+      padding: 18px 35px;
+      font-size: 1.1rem;
+      background-color: #27ae60;
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      margin: 15px 10px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .admin-actions .btn:hover {
+      background-color: #1abc9c;
+      transform: translateY(-3px);
+    }
+
+    .admin-actions .btn i {
+      margin-right: 10px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .admin-portal {
+        padding: 20px 15px;
+      }
+
+      .admin-features {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .admin-features .feature-section {
+        width: 100%;
+      }
+
+      .admin-actions .btn {
+        width: 100%;
+        padding: 16px;
+        font-size: 1rem;
+        margin: 12px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section class="admin-portal">
+    <h2>School Bus Tracker - Admin Portal</h2>
+
+    <!-- Features Section -->
+    <div class="admin-features">
+      <div class="feature-section">
+        <h3>Bus Tracking</h3>
+        <ul>
+          <li><i class="fa fa-map-marker"></i><a href="real-time-tracking.html">View Real-Time Bus Tracking</a></li>
+          <li><i class="fa fa-random"></i><a href="manage-bus-routes.html">Manage Bus Routes</a></li>
+          <li><i class="fa fa-history"></i><a href="historical-data.html">View Historical Tracking Data</a></li>
+          <li><i class="fa fa-exclamation-circle"></i><a href="emergency-alerts.html">Emergency Alerts & Notifications</a></li>
+        </ul>
+      </div>
+
+      <div class="feature-section">
+        <h3>Driver Management</h3>
+        <ul>
+          <li><i class="fa fa-truck"></i><a href="manage-drivers.html">Manage Drivers</a></li>
+          <li><i class="fa fa-chart-line"></i><a href="driver-performance.html"> Driver Performance</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Parent Communication Section -->
+    <div class="admin-features">
+      <div class="feature-section">
+        <h3>Parent Communication</h3>
+        <ul>
+          <li><i class="fa fa-bell"></i><a href="parent-notifications.html">Send Notifications to Parents</a></li>
+          <li><i class="fa fa-comments"></i><a href="parent-complaints.html">View Parent Complaints</a></li>
+          <li><i class="fa fa-thumbs-up"></i><a href="parent-feedback.html">View Parent Feedback</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="admin-actions">
+      <button class="btn" onclick="location.href='generate-reports.html'"><i class="fa fa-file-alt"></i> Generate Report</button>
+      <button class="btn" onclick="location.href='manage-users.html'"><i class="fa fa-users"></i> Manage Users</button>
+    </div>
+    <div class="admin-actions">
+      <button class="btn" onclick="location.href='Logout.html'"><i class="fa fa-play-circle"></i> Logout</button>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Details - Bus Tracking</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Leaflet.js CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #fafae3;
+      color: #333;
+      line-height: 1.8; /* Increased line height for readability */
+    }
+
+    .container {
+      max-width: 100%; /* Full width according to the device */
+      margin: 50px auto;
+      padding: 20px; /* Adjusted padding for flexibility */
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #f8a200; /* School Bus Yellow */
+      font-size: 3.5rem; /* Larger title */
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      margin-bottom: 40px;
+      padding: 40px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .card h2 {
+      font-size: 2.5rem; /* Larger subheading */
+      color: #005b99; /* Dark Blue */
+      margin-bottom: 20px;
+    }
+
+    /* Table Styling */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 50px;
+    }
+
+    th, td {
+      padding: 18px; /* Larger padding for better spacing */
+      text-align: left;
+      border: 1px solid #ddd;
+      font-size: 1.4rem; /* Larger font size */
+    }
+
+    th {
+      background-color: #f8a200; /* School Bus Yellow */
+      color: white;
+      font-weight: bold;
+    }
+
+    td {
+      background-color: #f1f1f1;
+    }
+
+    /* Table Row Hover */
+    tr:hover {
+      background-color: #e2e2e2;
+    }
+
+    .table-title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #005b99; /* Dark Blue */
+      margin-bottom: 25px;
+    }
+
+    .map-container {
+      margin-top: 50px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    #map {
+      height: 550px; /* Larger map height */
+      width: 100%;
+    }
+
+    /* Form Section */
+    .form-container {
+      margin-top: 50px;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h2 {
+      font-size: 2.5rem; /* Larger subheading */
+      color: #005b99; /* Dark Blue */
+      margin-bottom: 30px;
+    }
+
+    .form-container textarea {
+      width: 100%;
+      padding: 18px; /* Increased padding */
+      font-size: 1.4rem; /* Larger text area font */
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      resize: vertical;
+      height: 220px; /* Increased height */
+      margin-bottom: 30px;
+    }
+
+    .form-container input[type="submit"] {
+      padding: 18px 35px;
+      font-size: 1.6rem; /* Larger button text */
+      background-color: #f8a200; /* School Bus Yellow */
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: background-color 0.3s ease;
+    }
+
+    .form-container input[type="submit"]:hover {
+      background-color: #e68900;
+    }
+
+    /* Button Styling */
+    .back-btn {
+      display: inline-block;
+      background-color: #005b99; /* Dark Blue */
+      color: white;
+      padding: 18px 35px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1.4rem; /* Larger button text */
+      text-transform: uppercase;
+      margin-top: 35px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #004a74;
+    }
+
+    /* Two-Column Layout */
+    .row {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 380px; /* Increased minimum column width */
+    }
+
+    /* Responsive Design Adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 10px;
+        margin: 20px 0;
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .card h2 {
+        font-size: 2.2rem;
+      }
+
+      .table-title {
+        font-size: 1.8rem;
+      }
+
+      .row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Student Details - Bus Tracking</h1>
+
+    <!-- Two-Column Layout Start -->
+    <div class="row">
+      <!-- Column 1: Student Information -->
+      <div class="column">
+        <div class="card">
+          <h2>Student Information</h2>
+          <p><strong>Name:</strong> John Doe</p>
+          <p><strong>Grade:</strong> 10th</p>
+          <p><strong>School:</strong> ABC International School</p>
+          <p><strong>Student ID:</strong> 12345</p>
+        </div>
+      </div>
+
+      <!-- Column 2: Parent Information -->
+      <div class="column">
+        <div class="card">
+          <h2>Parent Information</h2>
+          <p><strong>Parent Name:</strong> Jane Doe</p>
+          <p><strong>Contact:</strong> +91 1234567890</p>
+          <p><strong>Address:</strong> 123, Street Name, Bengaluru, Karnataka</p>
+          <p><strong>Emergency Contact:</strong> +91 9876543210</p>
+        </div>
+      </div>
+    </div>
+    <!-- Two-Column Layout End -->
+
+    <!-- Attendance Status Table -->
+    <div class="card">
+      <h2 class="table-title">Attendance Status</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10th Nov 2024</td>
+            <td>No Remarks</td>
+            <td>No Remarks</td>
+          </tr>
+          <tr>
+            <td>9th Nov 2024</td>
+            <td>No Remarks</td>
+            <td>No Remarks</td>
+          </tr>
+          <tr>
+            <td>8th Nov 2024</td>
+            <td>No Remarks</td>
+            <td>No Remarks</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Bus Location Map -->
+    <div class="card">
+      <h2>Bus Location Map</h2>
+      <div class="map-container">
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <!-- Complaint Form -->
+    <div class="form-container">
+      <h2>Parent Complaint Section</h2>
+      <form>
+        <textarea name="complaint" placeholder="Please enter your complaint here..."></textarea>
+        <input type="submit" value="Submit Complaint">
+      </form>
+    </div>
+
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn">Back to Dashboard</a>
+  </div>
+
+  <!-- Leaflet.js Script -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    // Initialize the map
+    var map = L.map('map').setView([12.9716, 77.5946], 13); // Bengaluru coordinates
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© OpenStreetMap'
+    }).addTo(map);
+  </script>
+</body>
+</html>

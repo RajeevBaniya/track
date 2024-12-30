@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Reports</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f0dc; /* New background color */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-top: 30px;
+    }
+
+    .report-controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 20px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .report-controls input, .report-controls select {
+      margin: 10px;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #3498db;
+      border-radius: 8px;
+      width: 250px;
+    }
+
+    .generate-button {
+      padding: 12px 24px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 8px;
+      margin-top: 15px;
+      width: 270px;
+    }
+
+    .generate-button:hover {
+      background-color: #2980b9;
+    }
+
+    table {
+      width: 80%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      background-color: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #3498db;
+      color: white;
+      text-transform: uppercase;
+    }
+
+    td {
+      background-color: #fafafa;
+    }
+
+    tr:nth-child(even) td {
+      background-color: #f2f2f2;
+    }
+
+    tr:hover td {
+      background-color: #e3e3e3;
+    }
+
+    .status {
+      font-weight: bold;
+    }
+
+    .on-time {
+      color: green;
+    }
+
+    .delayed {
+      color: red;
+    }
+
+    .cancelled {
+      color: orange;
+    }
+
+    /* For the loading spinner */
+    .loading-spinner {
+      display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2em;
+    }
+
+  </style>
+</head>
+<body>
+
+  <h2>Generate Bus Tracking Reports</h2>
+
+  <!-- Controls to filter and generate reports -->
+  <div class="report-controls">
+    <input type="date" id="startDate" placeholder="Start Date" />
+    <input type="date" id="endDate" placeholder="End Date" />
+    <select id="busStatus">
+      <option value="">Select Status</option>
+      <option value="on-time">On-Time</option>
+      <option value="delayed">Delayed</option>
+      <option value="cancelled">Cancelled</option>
+    </select>
+    <select id="busRoute">
+      <option value="">Select Route</option>
+      <option value="Bengaluru - Whitefield">Bengaluru - Whitefield</option>
+      <option value="Koramangala - MG Road">Koramangala - MG Road</option>
+      <option value="Indiranagar - Whitefield">Indiranagar - Whitefield</option>
+    </select>
+    <button class="generate-button" onclick="generateReport()">Generate Report</button>
+  </div>
+
+  <!-- Table to display the report -->
+  <table id="busReportTable">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Bus ID</th>
+        <th>Route</th>
+        <th>Location</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Report data will appear here after filtering -->
+    </tbody>
+  </table>
+
+  <!-- Loading Spinner -->
+  <div class="loading-spinner" id="loadingSpinner">Loading...</div>
+
+  <script>
+    // Sample historical data (to be used in the report generation)
+    const busData = [
+      { date: "2023-09-01", busId: "101", route: "Bengaluru - Whitefield", location: "Bengaluru", status: "On-Time" },
+      { date: "2023-09-02", busId: "102", route: "Koramangala - MG Road", location: "Koramangala", status: "Delayed" },
+      { date: "2023-09-03", busId: "103", route: "Indiranagar - Whitefield", location: "Indiranagar", status: "Cancelled" },
+      { date: "2023-09-04", busId: "104", route: "MG Road - Whitefield", location: "MG Road", status: "On-Time" },
+      { date: "2023-09-05", busId: "105", route: "Koramangala - Indiranagar", location: "Koramangala", status: "Delayed" },
+      // Add more data as needed
+    ];
+
+    // Function to generate a report based on selected filters
+    function generateReport() {
+      const startDate = document.getElementById("startDate").value;
+      const endDate = document.getElementById("endDate").value;
+      const busStatus = document.getElementById("busStatus").value;
+      const busRoute = document.getElementById("busRoute").value;
+
+      // Show the loading spinner
+      document.getElementById("loadingSpinner").style.display = "block";
+
+      setTimeout(() => {
+        const filteredData = busData.filter(bus => {
+          const busDate = new Date(bus.date);
+          const start = startDate ? new Date(startDate) : new Date('1900-01-01');
+          const end = endDate ? new Date(endDate) : new Date();
+          
+          const statusMatch = busStatus ? bus.status.toLowerCase() === busStatus.toLowerCase() : true;
+          const routeMatch = busRoute ? bus.route === busRoute : true;
+          const dateMatch = busDate >= start && busDate <= end;
+
+          return statusMatch && routeMatch && dateMatch;
+        });
+
+        const tbody = document.querySelector("#busReportTable tbody");
+        tbody.innerHTML = ""; // Clear existing data
+
+        if (filteredData.length === 0) {
+          tbody.innerHTML = "<tr><td colspan='5' style='text-align: center;'>No data found for the selected filters.</td></tr>";
+        } else {
+          filteredData.forEach(bus => {
+            const row = document.createElement("tr");
+
+            row.innerHTML = `
+              <td>${bus.date}</td>
+              <td>${bus.busId}</td>
+              <td>${bus.route}</td>
+              <td>${bus.location}</td>
+              <td class="status ${bus.status.toLowerCase()}">${bus.status}</td>
+            `;
+
+            tbody.appendChild(row);
+          });
+        }
+
+        // Hide the loading spinner
+        document.getElementById("loadingSpinner").style.display = "none";
+      }, 1000); // Simulate a 1 second delay for loading data
+    }
+  </script>
+
+</body>
+</html>

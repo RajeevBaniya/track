@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BUS TRACKER - To every direction</title>
+
+   <!-- font awesome cdn link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Rubik:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- 
+    - preload images
+  -->
+</head>
+
+<body id="top">
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <h1>
+        <a href="#" class="logo">BusTracker</a>
+      </h1>
+
+      <nav class="navbar" data-navbar>
+
+        <div class="navbar-top">
+          <a href="#" class="logo">BusTracker</a>
+
+          <button class="nav-close-btn" aria-label="Clsoe menu" data-nav-toggler>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+ 
+        <div class="icons">
+          <div id="login-btn" class="fas fa-user"></div>
+      </div>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="#home" class="navbar-link" data-nav-link>
+              <span>Home</span>
+
+              <ion-icon name="chevron-forward"></ion-icon>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#about" class="navbar-link" data-nav-link>
+              <span>About</span>
+
+              <ion-icon name="chevron-forward"></ion-icon>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#portal" class="navbar-link" data-nav-link>
+              <span>Portal</span>
+
+              <ion-icon name="chevron-forward"></ion-icon>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#blog" class="navbar-link" data-nav-link>
+              <span>Blog</span>
+
+              <ion-icon name="chevron-forward"></ion-icon>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link" data-nav-link>
+              <span>Contact</span>
+
+              <ion-icon name="chevron-forward"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <div class="header-contact">
+
+        <div>
+          <p class="contact-label">CALL US</p>
+
+          <a href="tel:12345678910" class="contact-number">+91 7275966908</a>
+        </div>
+
+        <div class="contact-icon">
+          <ion-icon name="call-outline"></ion-icon>
+        </div>
+
+      </div>
+
+      <button class="nav-open-btn" aria-label="Open menu" data-nav-toggler>
+        <ion-icon name="menu-outline"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+  <!-- login-form -->
+
+<div class="login-form-container">
+
+  <div id="close-login-btn" class="fas fa-times"></div>
+
+  <form action="">
+      <h3>sign in</h3>
+      <span>Username</span>
+      <input type="email" name="" class="box" placeholder="enter your email" id="">
+      <span>Password</span>
+      <input type="password" name="" class="box" placeholder="enter your password" id="">
+      <div class="checkbox">
+          <input type="checkbox" name="" id="remember-me">
+          <label for="remember-me">Remember me</label>
+      </div>
+      <input type="submit" value="Sign In" class="btn">
+      <p>Forget Password ? <a href="#">Click here</a></p>
+      <p>Don't Have An Account ? <a href="#">Create one</a></p>
+  </form>
+
+</div>
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #Home
+      -->
+
+      <section class="section hero" aria-label="home" id="home"
+        style="background-image: url('./assets/images/bgggg.jpg')">
+        <div class="container">
+
+          <div class="hero-content">
+
+            <h2 class="h1 hero-title">
+              <span class="span">Bus Tracking</span> System
+            </h2>
+
+            <p class="hero-text">
+              So every kids gets to school in time and returns home safely
+              Management of school and college bus routes, pickup & drops stops,
+              drivers & students everday is simply too stressfull that's we are here
+              to help with BusTracker
+            </p>
+
+            <a href="#" class="btn-outline">EXPLORE NOW</a>
+
+            <img src="./assets/images/hero-shape.png" width="116" height="116" loading="lazy"
+              class="hero-shape shape-1">
+
+            <img src="./assets/images/hero-shape.png" width="116" height="116" loading="lazy"
+              class="hero-shape shape-2">
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #About
+      -->
+
+      <section class="section about" id="about" aria-label="about">
+        <div class="container">
+
+          <figure class="about-banner img-holder" style="--width: 400; --height: 720;">
+            <img src="./assets/images/about-banner2.png" width="400" height="720" loading="lazy" alt=""
+              class="img-cover">
+
+            <!-- <img src="./assets/images/about-shape-1.png" width="260" height="170" loading="lazy" alt=""
+              class="abs-img abs-img-1"> -->
+
+            <img src="./assets/images/about-shape-2.png" width="500" height="500" loading="lazy" alt=""
+              class="abs-img abs-img-2">
+          </figure>
+
+          <div class="about-content">
+
+            <p class="section-subtitle">Bus Tracker</p>
+
+            <h2 class="h2 section-title">How Does Bus Tracker work?</h2>
+
+            <p class="section-text">
+                Live Bus Tracking relies on GPS technology installed in school buses. 
+                These GPS devices continuously transmit the precise location data of the buses to a central server.
+                 Through user-friendly school bus tracker apps, parents and school authorities can access real-time updates on bus locations. 
+                 This means you can effortlessly track your child's school bus in real time.
+            </p>
+
+            <ul class="about-list">
+
+              <li class="about-item">
+                <div class="about-icon">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </div>
+
+                <p class="about-text">
+                    Bus Tracker is revolutionizing the way commuters interact with public transportation through its innovative live bus tracking app.
+                </p>
+              </li>
+
+              <li class="about-item">
+                <div class="about-icon">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </div>
+
+                <p class="about-text">
+                    Offering a real-time bus tracking system, BusTracker empowers passengers with accurate, up-to-the-minute information about bus locations and arrival times.
+                </p>
+              </li>
+
+              <li class="about-item">
+                <div class="about-icon">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </div>
+
+                <p class="about-text">
+                    This cutting-edge website enhances daily commutes by ensuring users can efficiently plan their journeys, avoid unnecessary waiting, and confidently navigate the city’s bus network. 
+                </p>
+              </li>
+
+              <li class="about-item">
+                <div class="about-icon">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </div>
+
+                <p class="about-text">
+                    With BusTracker live bus tracking feature, you can effortlessly sync your schedule with bus timetables, making public transportation more reliable and user-friendly
+                </p>
+              </li>
+
+              <li class="about-item">
+                <div class="about-icon">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </div>
+
+                <p class="about-text">
+                    Whether you’re a daily commuter, a tourist, or someone who occasionally uses the bus, BusTracker is your go-to solution for a stress-free, informed travel experience.
+                </p>
+              </li>
+
+              <!-- <li class="about-item">
+                <div class="about-icon">
+                  <ion-icon name="chevron-forward"></ion-icon>
+                </div>
+
+                <p class="about-text">
+                  The quality shows in every move we make where business lives.
+                </p>
+              </li> -->
+
+            </ul>
+
+            <a href="#" class="btn">Learn More</a>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PORTAL
+      -->
+
+      <section class="section portal" id="portal" aria-label="portal">
+        <div class="container">
+      
+          <p class="section-subtitle">All Portals </p>
+          
+      
+          <!-- <h2 class="h2 section-title">Total 3 Portals</h2> -->
+      
+          <p class="section-text">
+            BusTracker is a School & College bus tracking site.
+          </p>
+
+          <!-- <a href="#" class="btn">Read More</a> -->
+      
+          <ul class="portal-list grid-list">
+      
+            <li>
+              <div class="portal-card">
+      
+                <div class="card-icon">
+                  <img src="./assets/images/parenticon1.png" width="80" height="60" loading="lazy" alt="Truck">
+                </div>
+      
+                <h3 class="h3 card-title">
+                  <span class="span">01</span> Parent Portal
+                </h3>
+      
+                <p class="card-text">
+                  This Bus tracking portal for parents helps you to pick your children from their respective bus stops at the right time.
+                </p>
+      
+                  <!-- <a href="#" class="btn-link">
+                    <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+                    <span class="span">View Detail</span>
+                  </a> -->
+      
+              </div>
+            </li>
+      
+            <!-- Removed Driver Portal and added something else -->
+            <li>
+              <div class="portal-card">
+      
+                <div class="card-icon">
+                  <img src="./assets/images/parenticon1.png" width="80" height="60" loading="lazy" alt="Student">
+                </div>
+      
+                <h3 class="h3 card-title">
+                  <span class="span">02</span> Student Portal
+                </h3>
+      
+                <p class="card-text">
+                  The student portal allows students to track the bus in real-time, ensuring they don't miss their ride to school or college.
+                </p>
+      
+                <!-- <a href="#" class="btn-link">
+                  <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+                  <span class="span">View Detail</span>
+                </a> -->
+      
+              </div>
+            </li>
+      
+            <li>
+              <div class="portal-card">
+      
+                <div class="card-icon">
+                  <img src="./assets/images/adminportal.png" width="60" height="60" loading="lazy" alt="Airplane">
+                </div>
+      
+                <h3 class="h3 card-title">
+                  <span class="span">03</span> Admin/Manager portal
+                </h3>
+      
+                <p class="card-text">
+                  A web admin panel with a well-structured system that controls each & every aspect of users to analyze overall growth and ensures safety.
+                </p>
+      
+                <!-- <a href="#" class="btn-link">
+                  <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+                  <span class="span">View Detail</span>
+                </a>
+       -->
+              </div>
+            </li>
+      
+          </ul>
+      
+        </div>
+      </section>
+      
+
+
+
+
+
+      <!-- 
+        - #FEATURE
+      -->
+
+      <section class="section feature" aria-label="feature">
+        <div class="container">
+
+          <div class="title-wrapper">
+
+            <div>
+              <p class="section-subtitle">PORTALS</p>
+
+              <h2 class="h2 section-title">Portals Guideliness with features</h2>
+
+              <p class="section-text">
+                Real-time bus tracking, route information, estimated arrival times, and notifications for parents and students. 
+                It could also include a dashboard for administrators to manage routes, buses, and user accounts.
+              </p>
+            </div>
+
+
+          </div>
+
+          <ul class="feature-list grid-list">
+
+            <li>
+              <div class="feature-card" style="--card-number: '01'">
+                <div class="card-icon">
+                  <img src="./assets/images/Parent-App-1.png" width="72" height="91" alt="">
+                </div>
+            
+                <h3 class="h3 card-title">Parent Portal</h3>
+            
+                <p class="card-text">
+                  FEATURES - CHILDREN LIST, LIVE STATUS, MAP VIEW
+                </p>
+            
+                <!-- Features List -->
+                <ul class="features-list">
+                  <li>Notifications</li>
+                  <li>Tracking History</li>
+                  <!-- <li>ETA (Arrival)</li> -->
+                  <!-- <li>Geo-Fencing Alerts</li> -->
+                  <li>SMS/Email Updates</li>
+                </ul>
+            
+                <!-- View Student Details Link -->
+                <a href="student-details.html?studentId=123" class="card-btn" aria-label="View Student Details">
+                  <ion-icon name="arrow-forward"></ion-icon>
+                </a>
+                
+              </div>
+            </li>
+            
+
+            <li>
+              <div class="feature-card" style="--card-number: '02'">
+
+                <div class="card-icon">
+                  <img src="./assets/images/driver-app.png" width="94" height="94" alt="">
+                </div>
+
+                <h3 class="h3 card-title">Student Portal</h3>
+
+                <p class="card-text">
+                FEATURES- LIST OF CHILDREN,&nbsp;PICKED/ABSENT CHILDREN VIEW,&nbsp;UPDATE STATUS OF PICK/DROP&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                </p>
+
+                <a href="#" class="card-btn" aria-label="Read more">
+                  <ion-icon name="arrow-forward"></ion-icon>
+                </a>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="feature-card" style="--card-number: '03'">
+            
+                <div class="card-icon">
+                  <img src="./assets/images/adminportal.png" width="72" height="91" alt="Admin Portal">
+                </div>
+            
+                <h3 class="h3 card-title">Admin/Manager Portal</h3>
+            
+                <p class="card-text">
+                  FEATURES- USER MANAGEMENT, BUS TRACKING, BUS ARRIVAL ALERTS, GEO-FENCING ALERTS, 
+                  REAL-TIME BUS STATUS, MANAGE ROUTES, GENERATE REPORTS, MONITOR SAFETY
+                </p>
+            
+                <a href="admin-details.html" class="card-btn" aria-label="Read more">
+                  <ion-icon name="arrow-forward"></ion-icon>
+                </a>
+            
+              </div>
+            </li>
+            
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PROJECT
+      -->
+
+      <section class="section project" aria-label="project"
+      style="background-image: url('./assets/images/features.jpg')">
+      </section>
+
+
+
+
+
+      <!-- 
+        - #BLOG
+      -->
+
+      <section class="section blog" aria-label="blog" id="blog">
+        <div class="container">
+
+          <p class="section-subtitle">Our Blogs</p>
+
+          <!-- <h2 class="h2 section-title">Recent news & events</h2> -->
+
+          <p class="section-text">
+            In today's fast-paced world, guaranteeing seamless travel is essential. Technology has transformed travel,
+            particularly with the advent of online bus tracking. Let's delve into its benefits,emphasizing BusTracker's
+            real-time tracking capabilities.
+          </p>.
+
+
+          <ul class="blog-list grid-list">
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder" style="--width: 770; --height: 500;">
+                  <img src="./assets/images/blog1.png" width="770" height="500" loading="lazy"
+                    alt="Track My Bus with BusTracker"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <!-- <time class="card-meta" datetime="2022-08-02">
+                    <span class="span">02</span> Aug
+                  </time> -->
+
+                  <h3 class="h3 card-title">
+                    <a href="#">
+                        Track My Bus with BusTracker.
+                    </a>
+                  </h3>
+
+                  <p class="card-text">
+                    BusTracker is a standout player in the realm of bus tracking system. Its intuitive design and robust features make it
+                     a preferred choice for many commuters. With BusTracker, users can not only track their buses in real-time but also receive 
+                     timely updates on arrival and departure times, ensuring they never miss a ride. 
+                  </p>
+
+                  <a href="#" class="btn-link">
+                    <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+                    <span class="span">Read More</span>
+                  </a>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="blog-card">
+
+                <figure class="card-banner img-holder" style="--width: 770; --height: 500;">
+                  <img src="./assets/images/blog2.png" width="770" height="500" loading="lazy"
+                    alt="BusTracker: Ensuring Safe Journeys"
+                    class="img-cover">
+                </figure>
+
+                <div class="card-content">
+
+                  <!-- <time class="card-meta" datetime="2022-08-21">
+                    <span class="span">21</span> Aug
+                  </time> -->
+                  <h3 class="h3 card-title">
+                    <a href="#">
+                        BusTracker: Ensuring Safe Journeys
+                    </a>
+                  </h3>
+
+                  <p class="card-text">
+                    For parents and guardians concerned about the safety of their children during school bus journeys, BusTracker
+                     provides a dedicated solution. This specialized bus tracking app goes beyond simple location tracking. It offers
+                     features such as route optimization, real-time alerts, and even notifications will be send  when the bus is about to
+                      reach the destination.
+                  </p>
+
+                  <a href="#" class="btn-link">
+                    <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+
+                    <span class="span">Read More</span>
+                  </a>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #NEWSLETTER
+      -->
+
+      <section class="section newsletter" aria-label="newsletter">
+        <div class="container">
+
+          <figure class="newsletter-banner img-holder">
+            <img src="./assets/images/bus.png" width="303" height="381" alt="newsletter banner"
+              class="w-40">
+          </figure>
+
+          <div class="newsletter-content">
+
+            <h2 class="h2 section-title">Subscribe&nbsp;Us</h2>
+
+            <form action="" class="newsletter-form">
+              <input type="email" name="email_address" placeholder="Enter Your Email" aria-label="email"
+                class="email-field">
+
+              <button type="submit" class="newsletter-btn">CLICK HERE</button>
+            </form>
+
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+  <section class="section footer" aria-label="footer"
+  style="background-image: url('./assets/images/footerbg.png')">
+  <footer class="footer">
+    <div class="container">
+
+      <div class="footer-top section">
+
+        <div class="footer-brand">
+
+          <a href="#" class="logo">BusTracker</a>
+
+          <p class="footer-text">
+           Our BusTracker efficiently track school and college buses with real-time updates, 
+           ensuring students safety and optimizing routes. It manages with comprehensive
+            tracking and reporting features.
+          </p>
+
+          <ul class="social-list">
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-twitter"></ion-icon>
+              </a>
+            </li>
+
+            <li>
+              <a href="#" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Menu</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">About</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Portal</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Blog</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">Contact Us</a>
+          </li>
+
+        </ul>
+
+        <ul class="footer-list">
+
+          <li>
+            <p class="footer-list-title">Get in Touch</p>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">+91 7275966908</a>
+          </li>
+
+          <li>
+            <a href="#" class="footer-link">bustrackerofficial@gmail.com</a>
+          </li>
+
+        </ul>
+        
+
+      </div>
+
+      <!-- <div class="footer-bottom">
+        <p class="copyright">
+          &copy; BusTracker. All Rights Reserved<a href="#" class="copyright-link">BusTracker</a>
+        </p>
+      </div> -->
+
+    </div>
+  </footer>
+ </section>
+
+
+
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn" aria-label="Back to top" data-back-top-btn>
+    <ion-icon name="chevron-up"></ion-icon>
+  </a>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="./assets/js/script.js" defer></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
